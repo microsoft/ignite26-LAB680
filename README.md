@@ -1,75 +1,50 @@
-## Before you're done
-
-This repo has been created for your Microsoft Ignite 2026 session. Here's how to get it ready.
-
-**Easiest path — use the agent (recommended):**
-
-- Open GitHub Copilot Chat and say `help me initialize repo`. The agent will walk you through getting the README populated.
-- When you're ready to publish, say `help me finalize repo`. The agent will clean up unused folders, validate everything, and remove this "Before you're done" section and other extra stuff that attendees don't need to see.
-- Curious how it works? Read the [agent workflow](.github/AGENT-WORKFLOW.md).
-
-**Doing it manually?**
-
-Fill in the sections below yourself, then:
-
-- Delete any placeholder folders you don't need (`data/`, `infra/`, etc.)
-- Delete this "Before you're done" section
-- Delete `.github/agents/`, `.github/tests/`, `.github/copilot-instructions.md`, and `.github/AGENT-WORKFLOW.md` — these are template tooling, not part of your published repo
-
-**Folder conventions:**
-
-- Attendee step-by-step guidance goes in `instructions/`. If you use MkDocs or a docs site instead, put it in `docs/` and link to it from this README.
-- Reference material and background reading go in `docs/`.
-- You can add a `.devcontainer/` folder if needed.
-
----
-
-<a name="start-building"></a>
-
 <p align="center">
 <img src="img/banner-ignite-26.png" alt="Microsoft Ignite 2026" width="100%"/>
 </p>
 
 # [Microsoft Ignite 2026](https://ignite.microsoft.com)
 
-## 🔥LAB680: Identity Gaps Are Sneaky. Catch Them Before Attackers Do.
+## 🔥LAB680: Securing AI Agents with Microsoft Entra Conditional Access
+
 ### Session description
 
-Add your session description here. Keep it concise — 2-3 sentences about what attendees will learn and why it matters.
+AI agents now access corporate data, invoke tools and APIs, and act autonomously or on behalf of employees. In this 75-minute hands-on lab, learn how to manage Conditional Access policies for agents at scale, build surgical protection boundaries around agent identities and digital workers, analyze unified agent risk rolled up across Microsoft Security, and adapt access continuously mid-session as agent risk evolves.
 
 ### 🚀 Getting started
 
-#### In a guided session
+#### In a guided session (75 minutes total: 15 min intro, 45-55 min hands-on, 5 min wrap-up)
 
-If you're following along during a live session:
+If you're following along during a live Microsoft Ignite lab session:
 
-1. Step 1
-2. Step 2
-3. Open [`instructions/`](instructions/README.md) when this session includes
-   attendee step-by-step guidance
+1. Launch your lab environment via [LabOnDemand Profile 224816](https://labondemand.com/LabProfile/224816).
+2. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) using your lab tenant credentials.
+3. Open the step-by-step instructions in [`instructions/README.md`](instructions/README.md).
 
 #### On your own
 
 If you're learning at your own pace:
 
 1. Clone this repository
-2. Set up your environment
-3. Follow the session guidance in [`instructions/`](instructions/README.md), or
-   use the linked docs-site entry point when this repository uses that pattern
+2. Ensure you have access to a Microsoft Entra ID tenant with Microsoft Agent 365, Microsoft Entra Suite, or Microsoft 365 E7 licensing.
+3. Follow the self-paced walkthrough in [`instructions/README.md`](instructions/README.md).
 
 ### 🎯 Learning outcomes
 
 By the end of this session, you will be able to:
 
-- Outcome 1
-- Outcome 2
-- Outcome 3
+- **Manage Conditional Access policies at scale:** Express unified security intent across users and agents using shared targeting, break-glass exclusions, Custom Security Attributes, and Report-Only evaluation.
+- **Protect agent access to resources:** Target autonomous agent identities, agent identity blueprints, and computer-using agent users with endpoint execution environment and compliance constraints.
+- **Gain visibility into unified agent risk:** Correlate multi-vector risk signals across Microsoft Entra ID Protection, Microsoft Defender XDR, Microsoft Purview, and Global Secure Access into a unified risk level.
+- **Adapt access continuously to risk and action:** Enforce real-time Continuous Access Evaluation (CAE) mid-session revocations, dynamic down-scoping of compromised agents to read-only, and inline 3P enforcement through Global Secure Access.
 
 ### 💻 Technologies used
 
-- Technology 1
-- Technology 2
-- Technology 3
+- **Microsoft Entra Conditional Access**
+- **Microsoft Entra Agent ID** (Agent Identities & Agent Identity Blueprints)
+- **Microsoft Entra ID Protection** (Risky Agents & Workload Identity Risk)
+- **Global Secure Access (GSA)** (Secure Web and AI Gateway & Network Compliance)
+- **Microsoft Defender XDR** (Agent Runtime Protection & Endpoint Posture)
+- **Microsoft Purview** (AI Data Security & Sensitive Prompt Inspection)
 
 ### 📚 Continue your learning
 
@@ -77,41 +52,20 @@ Pick your next step based on your learning style:
 
 | Resource | What you'll get |
 |----------|-----------------|
+| **[Target agent identities in Conditional Access](https://learn.microsoft.com/entra/identity/conditional-access/howto-target-agent-identities)** | Official Microsoft Learn step-by-step documentation |
+| **[Conditional Access for agents overview](https://learn.microsoft.com/entra/identity/conditional-access/agent-id)** | Access patterns, authentication flows, and service boundaries |
+| **[Secure autonomous agents](https://learn.microsoft.com/entra/identity/conditional-access/policy-autonomous-agents)** | Policies for app-only agent identities |
+| **[Secure agents that act as users](https://learn.microsoft.com/entra/identity/conditional-access/policy-agent-user)** | Policies for digital worker agent user accounts |
 | **[Ignite 2026 Next Steps](https://aka.ms/ignite26-next-steps)** | Additional session repos and materials from Microsoft Ignite 2026 |
-| **[Microsoft AI Skills Navigator](https://aka.ms/ignite26-asn)** | Discover AI skills, learning paths, and resources for your next step |
-| **[Microsoft Learn](https://aka.ms/ignite26-learn)** | Official documentation and guided learning paths on these topics |
-| **[Microsoft Foundry Community](https://aka.ms/MicrosoftFoundryDiscord-Ignite26)** | Connect with other learners and experts in our Discord community |
-
-### 🌟 Microsoft Learn MCP Server
-
-<!-- Remove this section if the Microsoft Learn MCP Server is not relevant to the session. -->
-
-The Microsoft Learn MCP Server gives your AI agent direct access to Microsoft's official documentation — grounded, up-to-date answers about the topics in this session.
-
-**GitHub Copilot CLI** — Install with:
-
-```shell
-copilot plugin install microsoftdocs/mcp
-```
-
-**VS Code** — One-click install:  
-[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Microsoft_Learn_MCP-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=microsoft-learn&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Flearn.microsoft.com%2Fapi%2Fmcp%22%7D)
-
-For more information, visit the [Learn MCP Server repo](https://aka.ms/learnmcp).
 
 ### 👥 Content owners
 
-<!-- TODO: Add yourself as a content owner
-1. Change the src in the image tag to {your github url}.png
-2. Change INSERT NAME HERE to your name
-3. Change the github url in the final href to your url. -->
-
 <table>
 <tr>
-    <td align="center"><a href="http://github.com/yourGitHubHandle">
-        <img src="https://github.com/yourGitHubHandle.png" width="100px;" alt="INSERT NAME HERE"/><br />
-        <sub><b>INSERT NAME HERE</b></sub></a><br />
-            <a href="https://github.com/yourGitHubHandle" title="talk">📢</a>
+    <td align="center"><a href="https://github.com/MarileeTurscak-MSFT">
+        <img src="https://github.com/MarileeTurscak-MSFT.png" width="100px;" alt="Marilee Turscak - MSFT"/><br />
+        <sub><b>Marilee Turscak - MSFT</b></sub></a><br />
+            <a href="https://github.com/MarileeTurscak-MSFT" title="talk">📢</a>
     </td>
 </tr></table>
 
