@@ -8,11 +8,11 @@
 
 ### Session description
 
-AI agents now access corporate data, invoke tools and APIs, and act autonomously or on behalf of employees. In this 75-minute hands-on lab, learn how to manage Conditional Access policies for agents at scale, build surgical protection boundaries around agent identities and digital workers, analyze unified agent risk rolled up across Microsoft Security, and adapt access continuously mid-session as agent risk evolves.
+AI agents access corporate data, invoke tools and APIs, and act autonomously or on behalf of employees. In this lab, learn how Conditional Access Policy Plans organize shared conditions and rules, review Dynamic Agent Risk in Microsoft Entra and Microsoft Defender, and create agent-aware controls to block risky access or restrict protected actions.
 
 ### 🚀 Getting started
 
-#### In a guided session (75 minutes total: 15 min intro, 45-55 min hands-on, 5 min wrap-up)
+#### In a guided session (75 minutes total: 10 min intro, 50-60 min hands-on, 5 min wrap-up)
 
 If you're following along during a live Microsoft Ignite lab session:
 
@@ -32,19 +32,16 @@ If you're learning at your own pace:
 
 By the end of this session, you will be able to:
 
-- **Manage Conditional Access policies at scale:** Express unified security intent across users and agents using shared targeting, break-glass exclusions, Custom Security Attributes, and Report-Only evaluation.
-- **Protect agent access to resources:** Target autonomous agent identities, agent identity blueprints, and computer-using agent users with endpoint execution environment and compliance constraints.
-- **Gain visibility into unified agent risk:** Correlate multi-vector risk signals across Microsoft Entra ID Protection, Microsoft Defender XDR, Microsoft Purview, and Global Secure Access into a unified risk level.
-- **Adapt access continuously to risk and action:** Enforce real-time Continuous Access Evaluation (CAE) mid-session revocations, dynamic down-scoping of compromised agents to read-only, and inline 3P enforcement through Global Secure Access.
+- **Manage Conditional Access policies at scale:** Create Policy Plans with shared conditions and exclusions, separate access rules, and migrate existing policies into a plan.
+- **Assess Dynamic Agent Risk:** Review an agent's risk, state, exposure, blast radius, and supporting evidence in Microsoft Entra and compare it with the agent's Dynamic risk assessment in Microsoft Defender.
+- **Protect agent access and actions:** Create report-only rules to block high-risk agent identities and assistive agents, and use the **Restrict Actions** session control for protected actions.
 
 ### 💻 Technologies used
 
-- **Microsoft Entra Conditional Access**
-- **Microsoft Entra Agent ID** (Agent Identities & Agent Identity Blueprints)
-- **Microsoft Entra ID Protection** (Risky Agents & Workload Identity Risk)
-- **Global Secure Access (GSA)** (Secure Web and AI Gateway & Network Compliance)
-- **Microsoft Defender XDR** (Agent Runtime Protection & Endpoint Posture)
-- **Microsoft Purview** (AI Data Security & Sensitive Prompt Inspection)
+- **Microsoft Entra Conditional Access Policy Plans**
+- **Microsoft Entra ID Protection** (Risky agents and Dynamic Agent Risk)
+- **Microsoft Defender** (AI inventory and Dynamic risk assessment)
+- **Microsoft Entra sign-in logs**
 
 ### 📚 Continue your learning
 
