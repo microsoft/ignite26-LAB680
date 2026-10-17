@@ -12,7 +12,7 @@ AI agents access corporate data, invoke tools and APIs, and act autonomously or 
 
 ### 🚀 Getting started
 
-#### In a guided session (75 minutes total: 10 min intro, 50-60 min hands-on, 5 min wrap-up)
+#### In a guided session (75 minutes total: 15 min intro, 55 min hands-on, 5 min wrap-up)
 
 If you're following along during a live Microsoft Ignite lab session:
 
@@ -34,7 +34,7 @@ By the end of this session, you will be able to:
 
 - **Manage Conditional Access policies at scale:** Create Policy Plans with shared conditions and exclusions, separate access rules, and migrate existing policies into a plan.
 - **Assess Dynamic Agent Risk:** Review an agent's risk, state, exposure, blast radius, and supporting evidence in Microsoft Entra and compare it with the agent's Dynamic risk assessment in Microsoft Defender.
-- **Protect agent access and actions:** Create report-only rules to block high-risk agent identities and assistive agents, and use the **Restrict Actions** session control for protected actions.
+- **Protect and adapt agent access:** Create report-only rules to block high-risk agent identities and assistive agents, and use the **Restrict Actions** session control for protected actions.
 
 ### 💻 Technologies used
 
