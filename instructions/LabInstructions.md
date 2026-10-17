@@ -1,7 +1,7 @@
 # Lab instructions: Securing AI agents with Microsoft Entra Conditional Access
 
 **Session code:** LAB680
-**Total session:** 75 minutes (10 min intro, 50–60 min hands-on, 5 min wrap-up)
+**Total session:** 75 minutes (15 min intro, 55 min hands-on, 5 min wrap-up)
 **Lab profile:** [LabOnDemand Profile 224816](https://labondemand.com/LabProfile/224816)
 **Portal:** [Microsoft Entra admin center](https://entra.microsoft.com)
 
@@ -15,11 +15,10 @@ The lab uses a prepared tenant. Use the accounts, agent, user, links, and existi
 
 | Section | Activity | Estimated time |
 |---|---|---:|
-| 1 | Manage Conditional Access policies at scale | 20 min |
+| 1 | Manage Conditional Access policies at scale | 15 min |
 | 2 | Gain visibility into Dynamic Agent Risk | 10 min |
-| 3 | Protect agent access to resources | 25 min |
-| 4 | Adapt agent access to risk and action | 15 min |
-| 5 | Understand sign-in logs | 5 min |
+| 3 | Protect agent access and adapt access to risk and action | 25 min |
+| 4 | Understand sign-in logs | 5 min |
 
 ## Section 1: Manage Conditional Access policies at scale
 
@@ -137,9 +136,9 @@ Use the prepared agent and links in your lab environment to review risk and supp
 
 **Expected outcome:** Use the supporting evidence to explain the agent's Dynamic risk and potential impact, and confirm that you investigated the same agent in both experiences.
 
-## Section 3: Protect agent access to resources
+## Section 3: Protect agent access and adapt access to risk and action
 
-**Goal:** Prevent agents identified as high risk from obtaining access to protected resources, reducing exposure to prompt injection and other runtime threats.
+**Goal:** Prevent agents identified as high risk from obtaining access to protected resources, and let agents continue non-risky work while preventing sensitive actions or requiring a person to approve them.
 
 ### Create a Policy Plan to block risky agents
 
@@ -175,12 +174,6 @@ For this lab, target only the specified test user and keep the rule in **Report-
 5. Under **Grant and Session Controls** > **Grant**, select **Block**.
 6. Save the rule.
 
-## Section 4: Adapt agent access to risk and action
-
-**Goal:** Let agents continue non-risky work while preventing sensitive actions or requiring a person to approve them before execution.
-
-Create a Policy Plan and a rule using the **Restrict Actions** session control.
-
 ### Create the Policy Plan
 
 1. Navigate to **Conditional Access** > **Policy Plans** and create a new Policy Plan.
@@ -199,7 +192,7 @@ Create a Policy Plan and a rule using the **Restrict Actions** session control.
 5. Under **Grant and session controls** > **Session**, select **Restrict Actions**.
 6. Review and save the rule in **Report-only** mode so you can validate its effect before enforcement.
 
-## Section 5: Understand sign-in logs
+## Section 4: Understand sign-in logs
 
 Review sign-in activity related to your lab work.
 
@@ -211,7 +204,3 @@ Review sign-in activity related to your lab work.
 ## Wrap-up
 
 You used Conditional Access Policy Plans to organize shared conditions and separate rules, reviewed Dynamic Agent Risk in Microsoft Entra and Microsoft Defender, created report-only protections for high-risk agent identities and assistive agents, and explored how to restrict protected agent actions.
-
-## Instructor timing note
-
-The source guide states a 75-minute session with a 10-minute introduction, 50–60 minutes of hands-on work, and a 5-minute wrap-up. Its listed exercise estimates (20 + 10 + 25 + 15 + 5 minutes) total 75 minutes before the introduction and wrap-up. Confirm the intended exercise timing before publishing the final agenda.
