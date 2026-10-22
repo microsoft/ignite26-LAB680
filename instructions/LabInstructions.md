@@ -163,9 +163,9 @@ For this lab, target only the specified test user and keep the rule in **Report-
 5. Under **Conditions** > **Agent Risk**, select **Medium**.
 6. Create the Policy Plan.
 
-### Create a rule to restrict high-risk assistive-agent actions
+### Create a rule to restrict medium-risk assistive-agent actions
 
-1. From the Policy Plan, add a rule. Suggested name: `[your name or initials] [Test] Restrict Agent Actions for High-Risk Agents`.
+1. From the Policy Plan, add a rule. Suggested name: `[your name or initials] [Test] Restrict Agent Actions for Medium-Risk Agents`.
 2. Under **For these identities**, use the inherited **All Users** assignment from the plan; do not add another selection.
 3. Under **Accessing these resources** > **Agent Actions**, select **Microsoft recommended protected actions**.
 4. Under **Conditions** > **Assistive Agents**, select **All Assistive Agents**. Agent Risk is inherited from the plan; do not configure it again in the rule.
