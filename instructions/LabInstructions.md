@@ -148,8 +148,7 @@ The plan organizes the rules needed to cover different agent types and establish
 2. Enter a name. Suggested format: `[your name or initials] [Test] Block High-Risk Agents`.
 3. Under **For these identities**, leave the selection unconfigured at the plan level.
 4. Under **Accessing these resources** > **Resources**, include **All resources**.
-5. Under **Conditions** > **Agent risk**, select **High**.
-6. Create the Policy Plan.
+5. Create the Policy Plan.
 
 ### Create a rule to block high-risk agent identities
 
@@ -158,8 +157,9 @@ The plan organizes the rules needed to cover different agent types and establish
 1. From the Policy Plan, add a rule. Suggested name: `[your name or initials] [Test] Block High-Risk Agent Identities`.
 2. Set the rule **Status** to **Report-only**.
 3. Under **For these identities**, select **Agents**. Under **Included users**, select **Select agent identities**, search for the test agent provided in the lab, and select it.
-4. Under **Grant and Session Controls** > **Grant**, select **Block**.
-5. Save the rule.
+4. Under **Conditions** > **Agent risk**, select **High**.
+5. Under **Grant and Session Controls** > **Grant**, select **Block**.
+6. Save the rule.
 
 ### Create a rule to block high-risk assistive agents
 
