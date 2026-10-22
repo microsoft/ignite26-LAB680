@@ -9,7 +9,7 @@
 
 You are helping Contoso strengthen Conditional Access for users and AI agents. In this lab, you will use Policy Plans to organize shared conditions and rules, review Dynamic Agent Risk across Microsoft Entra and Defender, and create agent-aware access controls.
 
-The lab uses a prepared tenant. Use the accounts, agent, user, links, and existing policies supplied in your lab environment. Do not substitute production identities or enable policies unless a task explicitly directs you to do so.
+The lab uses a prepared tenant. Use the accounts, agent, user, links, and existing policies supplied in your lab environment. Do not substitute production identities or enable policies unless a task explicitly directs you to do so. You do not need to save the policies as we already have the same policies configured in the tenant. If you choose to enable the policies, please only do so in Report-Only Mode. 
 
 ## Lab sections
 
@@ -180,7 +180,7 @@ For this lab, target only the specified test user and keep the rule in **Report-
 2. Enter a name. Suggested format: `[your name or initials] [Test] Restrict Agent Actions`.
 3. Under **For these identities** > **Users and Groups**, select **All Users**.
 4. Under **Accessing these resources**, leave the plan-level selection unconfigured.
-5. Under **Conditions** > **Agent Risk**, select **High**.
+5. Under **Conditions** > **Agent Risk**, select **Medium**.
 6. Create the Policy Plan.
 
 ### Create a rule to restrict high-risk assistive-agent actions
