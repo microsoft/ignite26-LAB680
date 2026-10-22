@@ -66,26 +66,6 @@ In this section, create a Policy Plan for HQ users, explore a plan for agent pro
 
 **What you accomplished:** The HQ user scope and exclusions are defined once and shared across the plan's rules. The phishing-resistant authentication and compliant-device requirements are separate controls.
 
-### Build a Policy Plan for securing agent access
-
-1. From **Conditional Access** > **Policy Plans**, locate and open the Policy Plan for securing agent access.
-2. Review the plan's **Shared Conditions**:
-   - **Client app types:** All client app types
-   - **Agent risk:** High
-3. Review the separate rules in the plan. They are configured to:
-   - Block high-risk agent users.
-   - Block high-risk assistive agents.
-   - Block high-risk autonomous agents.
-4. Open **High Risk Assistive Agents** and review the conditions inherited from the Policy Plan.
-5. Review the rule's additional configuration:
-   - **Assignment:** All users
-   - **Control:** Block
-6. Return to the Policy Plans view.
-
-**Note:** Policy Plans can also be created from templates. The agent Policy Plan in this exercise was created from a template.
-
-**What you accomplished:** You built a Policy Plan organizes related agent access protections, consolidating common configuration into shared conditions while retaining policy-specific configuration as individual rules.
-
 ### Migrate existing Conditional Access policies into a Policy Plan
 
 1. Navigate to your existing Conditional Access policies.
