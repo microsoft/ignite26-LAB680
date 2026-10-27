@@ -26,7 +26,7 @@ In this section, create a Policy Plan for HQ users, explore a plan for agent pro
 
 ### Create a Policy Plan for HQ users
 
-1. In the Microsoft Entra admin center, navigate to **Conditional Access** > **Policy Plans**.
+1. In the Microsoft Entra admin center, navigate to [**Conditional Access**](https://entra.microsoft.com/?Microsoft_AAD_RegisteredApps=demo&exp.riskyAgentDetailsPaneV2Enabled=true#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/Overview) > [**Policy Plans**](https://entra.microsoft.com/?Microsoft_AAD_RegisteredApps=demo&exp.riskyAgentDetailsPaneV2Enabled=true#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/PolicyPlans).
 2. Select the option to create a new Policy Plan.
 3. Configure the plan:
    - **Name:** Enter a name for the HQ Policy Plan.
@@ -68,11 +68,11 @@ In this section, create a Policy Plan for HQ users, explore a plan for agent pro
 
 ### Migrate existing Conditional Access policies into a Policy Plan
 
-1. Navigate to your existing Conditional Access policies.
+1. Navigate to your [Conditional Access policies](https://entra.microsoft.com/?Microsoft_AAD_RegisteredApps=demo&exp.riskyAgentDetailsPaneV2Enabled=true#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/Policies).
 2. Filter the policy list for `Branch` to display the branch-office policies.
 3. Select **Migrate to Conditional Access Policy Plans**, then select **Get started**.
 4. From the filtered list, select the policies to migrate. Use **Select all** to select all five branch-office policies.
-5. Select **Merge 5 policies into a plan**.
+5. Select **Merge 2 policies into a plan**.
 6. Review the preview of the new Policy Plan.
 7. Enter `Branch Office Access` as the Policy Plan name.
 8. Review the **Shared Conditions** identified from configuration common to the selected policies.
@@ -86,7 +86,7 @@ In this section, create a Policy Plan for HQ users, explore a plan for agent pro
 
 ### Review agent risk in Microsoft Entra
 
-1. Sign in to the Microsoft Entra admin center and go to Microsoft Entra ID Protection.
+1. In the Microsoft Entra admin center, go to Microsoft Entra ID Protection > [Risky agents](https://entra.microsoft.com/?Microsoft_AAD_RegisteredApps=demo&exp.riskyAgentDetailsPaneV2Enabled=true#view/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/~/RiskyAgents/menuId/RiskyAgents/fromNav/).
 2. Open **Risky agents** section and select an agent. 
 3. Review and record the agent's:
    - Overall risk
