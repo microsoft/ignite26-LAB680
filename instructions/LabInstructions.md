@@ -84,27 +84,23 @@ In this section, create a Policy Plan for HQ users, explore a plan for agent pro
 
 ## Section 2: Gain visibility into Dynamic Agent Risk
 
-Use the prepared agent and links in your lab environment to review risk and supporting evidence in Microsoft Entra and Microsoft Defender. Confirm that both experiences refer to the same agent before drawing conclusions.
-
 ### Review agent risk in Microsoft Entra
 
-1. Sign in to the Microsoft Entra admin center using the **Security Reader** account provided in the lab.
-2. Open **Risky agents** using the link provided in the lab.
-3. Locate the prepared agent for this exercise. Adjust the risk, state, and date/time filters as needed.
-4. Confirm that the **Agent ID** matches the agent used in the lab.
-5. Review and record the agent's:
+1. Sign in to the Microsoft Entra admin center and go to Microsoft Entra ID Protection.
+2. Open **Risky agents** section and select an agent. 
+3. Review and record the agent's:
    - Overall risk
    - Risk state
    - Available runtime risk information
    - Available exposure information
    - Available blast-radius information
-6. Open the available evidence or investigation links. Verify that the evidence is associated with the agent you identified.
+4. Open the available evidence or investigation links. Verify that the evidence is associated with the agent you selected.
 
 **Expected outcome:** Use the risk assessment and its supporting evidence to explain the agent's risk and identify a next investigation step.
 
 ### Review agent risk in Microsoft Defender
 
-1. Open **Defender AI inventory** using the link provided in the lab.
+1. Open **Defender AI inventory**.
 2. Locate the same agent or agent instance reviewed in Microsoft Entra. Verify that it maps to the agent identified in the previous exercise.
 3. Review the agent's **Dynamic risk assessment**, including available:
    - Exposure indicators
