@@ -8,7 +8,7 @@
 
 ### Session description
 
-AI agents access corporate data, invoke tools and APIs, and act autonomously or on behalf of employees. In this lab, learn how Conditional Access Policy Plans organize shared conditions and rules, review Dynamic Agent Risk in Microsoft Entra and Microsoft Defender, and create agent-aware controls to block risky access or restrict protected actions.
+AI agents need access to corporate resources to be useful, but risk can change what that access should allow. Identity teams, put your policy plans into practice: scale Conditional Access across humans and AI agents, use agent risk to drive access decisions, and adapt enforcement in real time.
 
 ### 🚀 Getting started
 
