@@ -4,8 +4,7 @@
 
 # [Microsoft Ignite 2026](https://ignite.microsoft.com)
 
-## 🔥LAB680: Securing AI Agents with Microsoft Entra Conditional Access
-
+## 🔥LAB680: AI Agents Are Sending Signals. Make Access Respond.
 ### Session description
 
 AI agents access corporate data, invoke tools and APIs, and act autonomously or on behalf of employees. In this lab, learn how Conditional Access Policy Plans organize shared conditions and rules, review Dynamic Agent Risk in Microsoft Entra and Microsoft Defender, and create agent-aware controls to block risky access or restrict protected actions.
