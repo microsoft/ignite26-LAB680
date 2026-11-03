@@ -1,4 +1,6 @@
-# Lab instructions: Securing AI agents with Microsoft Entra Conditional Access
+## Lab 680: AI Agents Are Sending Signals. Make Access Respond
+
+
 
 **Session code:** LAB680
 **Total session:** 75 minutes (15 min intro, 55 min hands-on, 5 min wrap-up)
@@ -20,23 +22,33 @@ The lab uses a prepared tenant. Use the accounts, agent, user, links, and existi
 | 3 | Protect agent access and adapt access to risk and action | 25 min |
 | 4 | Understand sign-in logs | 5 min |
 
+
+In **entra.admin.com**, enter the following credentials:
+
+Username: +++@lab.CloudCredential(LAB680-Ignite26wTAP).UserPrincipalName+++
+@lab.CloudCredential(LAB680-Ignite26wTAP).UserPrincipalName
+
+TAP: +++@lab.CloudCredential(LAB680-Ignite26wTAP).TemporaryAccessPass+++
+
+@lab.CloudCredential(LAB680-Ignite26wTAP).TemporaryAccessPass
+
 ## Section 1: Manage Conditional Access policies at scale
 
 In this section, create a Policy Plan for HQ users, explore a plan for agent protection, and migrate existing branch-office policies into a plan. Policy Plans let you define shared conditions once and organize distinct controls as separate rules.
 
 ### Create a Policy Plan for HQ users
 
-1. In the Microsoft Entra admin center, navigate to [**Conditional Access**](https://entra.microsoft.com/?Microsoft_AAD_RegisteredApps=demo&exp.riskyAgentDetailsPaneV2Enabled=true#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/Overview) > [**Policy Plans**](https://entra.microsoft.com/?Microsoft_AAD_RegisteredApps=demo&exp.riskyAgentDetailsPaneV2Enabled=true#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/PolicyPlans).
-2. Select the option to create a new Policy Plan.
-3. Configure the plan:
-   - **Name:** Enter a name for the HQ Policy Plan.
-   - **Description:** Explain the purpose of the plan.
-   - **Tags:** Add the tag `HQ`.
+1. In the Microsoft Entra admin center (entra.microsoft.com), navigate to > **Conditional Access** ++https://aka.ms/CAAssistiveAgentsWithRisk++ (Copy + Right-click Paste and Go in the toolbar) > **Policy Plans** 
+3. Select the option to create a new Policy Plan.
+4. Configure the plan:
+   - **Name:** Enter the name: +++HQ Policy Plan+++.
+   - **Description:** Enter: +++Compliance for HQ users+++.
+   - **Tags:** Add the tag +++HQ+++.
    - Verify that your account is listed as the owner.
-4. Under the plan's shared assignments, select **Users and groups**.
-5. For **Include**, search or filter for `HQ`, then select the **HQ all users** group.
-6. For **Exclude**, search or filter for `HQ`, then select **Breakglass HQ**.
-7. Continue to create the first rule. The users and groups you selected are shared by the rules in this plan.
+5. Under the plan's shared assignments, select **Users and groups**.
+6. For **Include**, search or filter for +++HQ+++, then select the **HQ all users** group.
+7. For **Exclude**, search or filter for +++HQ+++, then select **Breakglass HQ**.
+8. Continue to create the first rule. The users and groups you selected are shared by the rules in this plan.
 
 ### Add a rule to require phishing-resistant authentication
 
@@ -68,11 +80,11 @@ In this section, create a Policy Plan for HQ users, explore a plan for agent pro
 
 ### Migrate existing Conditional Access policies into a Policy Plan
 
-1. Navigate to your [Conditional Access policies](https://entra.microsoft.com/?Microsoft_AAD_RegisteredApps=demo&exp.riskyAgentDetailsPaneV2Enabled=true#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/Policies).
+1. Navigate to your **Conditional Access policies** at ++https://aka.ms/CAAssistiveAgentsWithRisk++ (Copy + Right-click Paste and Go in the toolbar).
 2. Filter the policy list for `Branch` to display the branch-office policies.
 3. Select **Migrate to Conditional Access Policy Plans**, then select **Get started**.
 4. From the filtered list, select the policies to migrate. Use **Select all** to select all five branch-office policies.
-5. Select **Merge 2 policies into a plan**.
+5. Select **Merge 5 policies into a plan**.
 6. Review the preview of the new Policy Plan.
 7. Enter `Branch Office Access` as the Policy Plan name.
 8. Review the **Shared Conditions** identified from configuration common to the selected policies.
@@ -86,7 +98,7 @@ In this section, create a Policy Plan for HQ users, explore a plan for agent pro
 
 ### Review agent risk in Microsoft Entra
 
-1. In the Microsoft Entra admin center, go to Microsoft Entra ID Protection > [Risky agents](https://entra.microsoft.com/?Microsoft_AAD_RegisteredApps=demo&exp.riskyAgentDetailsPaneV2Enabled=true#view/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/~/RiskyAgents/menuId/RiskyAgents/fromNav/).
+1. In the Microsoft Entra admin center, go to Microsoft Entra ID Protection > **Risky Agents** [Risky Agents](https://entra.microsoft.com/?Microsoft_AAD_RegisteredApps=demo&exp.riskyAgentDetailsPaneV2Enabled=true#view/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/~/RiskyAgents/menuId/RiskyAgents/fromNav) (Copy + Right-click Paste and Go in the toolbar)
 2. Open **Risky agents** section and select an agent. 
 3. Review and record the agent's:
    - Overall risk
@@ -100,7 +112,7 @@ In this section, create a Policy Plan for HQ users, explore a plan for agent pro
 
 ### Review agent risk in Microsoft Defender
 
-1. Open **Defender AI inventory**.
+1. Go to ++security.microsoft.com++ (Copy + Right-click Paste and Go in the toolbar). Under ***Assets**, open **Defender AI inventory**.
 2. Locate the same agent or agent instance reviewed in Microsoft Entra. Verify that it maps to the agent identified in the previous exercise.
 3. Review the agent's **Dynamic risk assessment**, including available:
    - Exposure indicators
@@ -112,6 +124,7 @@ In this section, create a Policy Plan for HQ users, explore a plan for agent pro
 
 **Expected outcome:** Use the supporting evidence to explain the agent's Dynamic risk and potential impact, and confirm that you investigated the same agent in both experiences.
 
+
 ## Section 3: Protect agent access and adapt access to risk and action
 
 **Goal:** Prevent agents identified as high risk from obtaining access to protected resources, and let agents continue non-risky work while preventing sensitive actions or requiring a person to approve them.
@@ -120,7 +133,7 @@ In this section, create a Policy Plan for HQ users, explore a plan for agent pro
 
 The plan organizes the rules needed to cover different agent types and establishes shared conditions.
 
-1. Navigate to **Conditional Access** > **Policy Plans** and create a new Policy Plan.
+1. Navigate to **Conditional Access** > ++https://aka.ms/CAAssistiveAgentsWithRisk++ (Copy + Right-click Paste and Go in the toolbar) > **Policy Plans** and create a new Policy Plan.
 2. Enter a name. Suggested format: `[your name or initials] [Test] Block High-Risk Agents`.
 3. Under **For these identities**, leave the selection unconfigured at the plan level.
 4. Under **Accessing these resources** > **Resources**, include **All resources**.
@@ -172,11 +185,9 @@ For this lab, target only the specified test user and keep the rule in **Report-
 
 Review sign-in activity related to your lab work.
 
-1. Open the Microsoft Entra admin center.
-2. Navigate to **Entra ID** > **Monitoring & health** > **Sign-in logs**.
-3. Use the available filters to narrow sign-in activity to your user account and the date/time range of the lab.
-4. Select one of your sign-in events and review its details.
-
-## Wrap-up
-
-You used Conditional Access Policy Plans to organize shared conditions and separate rules, reviewed Dynamic Agent Risk in Microsoft Entra and Microsoft Defender, created report-only protections for high-risk agent identities and assistive agents, and explored how to restrict protected agent actions.
+1. Open the **Microsoft Entra admin center.**
+2. Navigate to Entra ID > Monitoring & health > Sign-in logs. 
+3. Use the available filters to narrow the sign-in activity to your user account and the date/time range of the lab.
+4. Select one of your sign-in events to review its details.
+3. Use the available filters to narrow the sign-in activity to your user account and the date/time range of the lab.
+4. Select one of your sign-in events to review its details.
