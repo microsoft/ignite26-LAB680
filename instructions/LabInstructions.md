@@ -10,6 +10,17 @@
 
 **Portal:** [Microsoft Entra admin center](https://entra.microsoft.com)
 
+##Access the lab
+Select **Sign-in**
+
+In the browser, go to +++entra.microsoft.com+++ and enter the following credentials:
+
+Username: +++@lab.CloudCredential(LAB680-Ignite26wTAP).UserPrincipalName+++
+
+TAP: +++@lab.CloudCredential(LAB680-Ignite26wTAP).TemporaryAccessPass+++
+
+===
+
 ## Scenario
 
 Maya is a security administrator at Contoso, where employees increasingly rely on AI agents to research
@@ -37,17 +48,6 @@ save new policies. If you choose to save a policy, keep it in Report-only mode. 
 
 ===
 
-Select **Sign-in**
-
-In **entra.admin.com**, enter the following credentials:
-
-Username: ++@lab.CloudCredential(LAB680-Ignite26wTAP).UserPrincipalName++
-
-TAP: ++@lab.CloudCredential(LAB680-Ignite26wTAP).TemporaryAccessPass++
-
-
-===
-
 ## Section 1: Manage Conditional Access policies at scale
 
 Before configuring agent protections, Maya reviews Contoso's existing Conditional Access policies. Several
@@ -56,7 +56,7 @@ policies repeat the same user assignments and exclusions, making them harder to 
 In this section, create a Policy Plan for HQ users and migrate existing branch-office policies into a plan.
 Policy Plans let you define shared conditions once and organize distinct controls as separate rules.
 
-### Create a Policy Plan for HQ users
+### 1.1 Create a Policy Plan for HQ users
 
 1. In the Microsoft Entra admin center (entra.microsoft.com), navigate to > **Conditional Access** ++https://aka.ms/CAAssistiveAgentsWithRisk++ (Copy + Right-click Paste and Go in the toolbar) > **Policy Plans** 
 3. Select the option to create a new Policy Plan.
@@ -72,7 +72,7 @@ Policy Plans let you define shared conditions once and organize distinct control
 
 Now that we have configured a policy plan for the HQ users and excluded an emergency-access group, let's define separate rules for phishing resistant and compliant devices.
 
-### Add a rule to require phishing-resistant authentication
+### 1.2 Add a rule to require phishing-resistant authentication
 
 1. Create the first rule in the Policy Plan.
 2. Configure the rule:
@@ -87,7 +87,7 @@ Now that we have configured a policy plan for the HQ users and excluded an emerg
    - Select **Phishing-resistant MFA**, then confirm your selection.
 4. Review and create the Policy Plan and its initial rule.
 
-### Add a rule to require compliant devices
+### 1.3 Add a rule to require compliant devices
 
 1. From the HQ Policy Plan, add a new rule.
 2. Configure the rule:
@@ -98,7 +98,7 @@ Now that we have configured a policy plan for the HQ users and excluded an emerg
 3. Under **Grant**, select **Grant access**, then **Require device to be marked as compliant**.
 4. Save the rule. Keep new rules in **Report-only** while validating their effect.
 
-### Migrate existing Conditional Access policies into a Policy Plan
+### 1.4 Migrate existing Conditional Access policies into a Policy Plan
 
 1. Navigate to your **Conditional Access policies** at ++https://aka.ms/CAAssistiveAgentsWithRisk++ (Copy + Right-click Paste and Go in the toolbar).
 2. Filter the policy list for `Branch` to display the branch-office policies.
@@ -128,7 +128,7 @@ Rather than treating the risk label alone as proof of compromise, she examines t
 exposure, and blast-radius information. What evidence supports the assessment? What resources could be
 affected? Is any supporting information unavailable? 
 
-### Review agent risk in Microsoft Entra
+### 2.1 Review agent risk in Microsoft Entra
 
 1. In the Microsoft Entra admin center, go to Microsoft Entra ID Protection > **Risky Agents** [Risky Agents](https://entra.microsoft.com/?Microsoft_AAD_RegisteredApps=demo&exp.riskyAgentDetailsPaneV2Enabled=true#view/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/~/RiskyAgents/menuId/RiskyAgents/fromNav) (Copy + Right-click Paste and Go in the toolbar)
 2. Open **Risky agents** section and select an agent. 
@@ -143,7 +143,7 @@ affected? Is any supporting information unavailable?
 Maya follows the investigation into Microsoft Defender AI inventory, carefully verifying that she is reviewing the same agent or instance. She compares the findings across both experiences and checks the identity, source, and time associated with the available evidence. 
 
 
-### Review agent risk in Microsoft Defender
+### 2.2 Review agent risk in Microsoft Defender
 
 1. Go to ++security.microsoft.com++ (Copy + Right-click Paste and Go in the toolbar). Under ***Assets**, open **Defender AI inventory**.
 2. Locate the same agent or agent instance reviewed in Microsoft Entra. Verify that it maps to the agent identified in the previous exercise.
@@ -167,28 +167,29 @@ For high-risk agents, she configures a Policy Plan with separate rules covering 
 identity and supported assistive-agent interactions for the test user. Her intended outcome is to block
 high-risk agent access while retaining existing user-access protections.
 
-### Create a Policy Plan to block high-risk agents
+### 3.1 Create a Policy Plan to block high-risk agents
 
 The plan organizes the rules needed to cover different agent types and establishes shared conditions.
 
-1. Navigate to **Conditional Access** > ++https://aka.ms/CAAssistiveAgentsWithRisk++ (Copy + Right-click Paste and Go in the toolbar) > **Policy Plans** and create a new Policy Plan.
+1. Navigate to **Conditional Access** > ++https://entra.microsoft.com/?Microsoft_AAD_ConditionalAccess=Canary&feature.agentActions=true#view/Microsoft_AAD_ConditionalAccess/PolicyPlanEditor.ReactView/planId//mode/create++ (Copy + Right-click Paste and Go in the toolbar) > **Policy Plans** and create a new Policy Plan.
 2. Enter a name. Suggested format: `[your name or initials] [Test] Block High-Risk Agents`.
-3. Under **For these identities**, leave the selection unconfigured at the plan level.
-4. Under **Accessing these resources** > **Resources**, include **All resources**.
-5. Under **Conditions** > **Agent risk**, select **High**.
-6. Create the Policy Plan.
+3. Under **Shared identities**, leave the selection unconfigured at the plan level.
+4. Under **Shared resources** leave the selection unconfigured at the plan level
+5. Under **Shared Conditions** > **Add condition** > **Agent risk**, select **High**.
+6. Select **Next: Rule information**.
 
-### Create a rule to block high-risk agent identities
+### 3.2 Create a rule to block high-risk agent identities
 
 **Policy intent:** For an agent identity, when agent risk is High, block access to all Entra resources. For this lab, create the rule in **Report-only** mode.
 
-1. From the Policy Plan, add a rule. Suggested name: `[your name or initials] [Test] Block High-Risk Agent Identities`.
-2. Set the rule **Status** to **Report-only**.
-3. Under **For these identities**, select **Agents**. Under **Included users**, select **Select agent identities**, search for the test agent provided in the lab, and select it.  Agent Risk is inherited from the plan; do not configure it again in the rule.
-4. Under **Grant and Session Controls** > **Grant**, select **Block**.
-5. Save the rule.
+1. Now you're creating your first rule for the plan. Suggested name: `[your name or initials] [Test] Block High-Risk Agent Identities`.
+2. Leave **Status** as **Report-only**. 
+3. Under **For the identities**, select **+Add resource** > **Agents** > **All agent identities**. Under **Included users**, select **Select agent identities** > > **Agent identities** > Select the **AI Assistant** agent. Agent Risk is inherited from the plan; do not configure it again in the rule.
+4. Under **Accessing these resources** > **Resources** > select **All resources** > **Add**.
+5. Under **Grant and Session Controls** > **Add control** > **Grant**, select **Block**.
+6. Select **Next: Review + Create**.
 
-### Create a rule to block high-risk assistive agents
+### 3.3 Create a rule to block high-risk assistive agents
 
 **Policy intent:** Block access to all Entra resources when a high-risk assistive agent acts on behalf of
 the selected test user. This adds agent-aware protection to existing user-scoped Conditional Access
@@ -198,33 +199,37 @@ interaction. Keep existing policies that govern users' access to protected resou
 For this lab, target only the specified test user and keep the rule in **Report-only** mode.
 
 1. From the Policy Plan, add a rule. Suggested name: `[your name or initials] [Test] Block High-Risk Assistive Agents`.
-2. Set the rule **Status** to **Report-only**.
-3. Under **Conditions** > **Assistive Agents**, select **All Assistive Agents**.
-4. Under **For these identities**, select **Users & Groups**. Under **Included Users**, select **Users and Groups**, search for your test user, and select that user. Agent Risk is inherited from the plan; do not configure it again in the rule.
-5. Under **Grant and Session Controls** > **Grant**, select **Block**.
-6. Save the rule.
+2. Leave the **Status** as **Report-only**.
+3. Under **Shared identities**, select **Add users, agents, or workload identities**.
+4. **Users & Groups**. Under **Included Users**, select **Users and Groups**, search for **"Test User"**, and select that user. Agent Risk is inherited from the plan; do not configure it again in the rule.
+5. 4. Under **Accessing these resources** > **Resources** > select **All resources** > **Add**.
+6. Under **Conditions** > **Assistive Agents**, select **All Assistive Agents**.
+7. Under **Grant and Session Controls** > **Grant**, select **Block**.
+8. Save the rule.
 
 For medium-risk assistive agent actions, Maya takes a more targeted approach. She configures a separate plan that applies Restrict Actions to Microsoft-recommended protected actions. The intent is to constrain sensitive actions rather than apply a blanket access block. 
 
-### Create a Policy Plan to restrict medium-risk agent actions
+### 3.4 Create a Policy Plan to restrict medium-risk agent actions
 
 1. Navigate to **Conditional Access** > **Policy Plans** and create a new Policy Plan.
 2. Enter a name. Suggested format: `[your name or initials] [Test] Restrict Agent Actions`.
-3. Under **For these identities** > **Users and Groups**, select **All Users**.
-4. Under **Accessing these resources**, leave the plan-level selection unconfigured.
-5. Under **Conditions** > **Agent Risk**, select **Medium**.
-6. Create the Policy Plan.
+3. Under **Shared identities**, leave the selection unconfigured at the plan level.
+4. Under **Shared resources** leave the selection unconfigured at the plan level
+5. Under **Shared conditions** > **Add condition** > **Agent Risk**, select **Medium**.
+6. Go to **Next: Rule information**.
 
-### Create a rule to restrict medium-risk assistive-agent actions
+### 3.5 Create a rule to restrict medium-risk assistive-agent actions
 
 1. From the Policy Plan, add a rule. Suggested name: `[your name or initials] [Test] Restrict Agent Actions for Medium-Risk Agents`.
-2. Under **For these identities**, use the inherited **All Users** assignment from the plan; do not add another selection.
-3. Under **Accessing these resources** > **Agent Actions**, select **Microsoft recommended protected actions**.
+2. Under **For these identities**, **+ Add users** > **Users and groups** > **All Users** > **Add**.
+3. Under **Accessing these resources** > **Add Resources** > **Actions and destination**, select **Microsoft destinations** > **Protect sensitive actions** > Choose categories such as **Sensitive data access** > **Add**.
 4. Under **Conditions** > **Assistive Agents**, select **All Assistive Agents**. Agent Risk is inherited from the plan; do not configure it again in the rule.
-5. Under **Grant and session controls** > **Session**, select **Restrict Actions**.
+5. Under **Grant and session controls** > **Add control** > **Session**, select **Restrict Actions** > **Add**.
 6. Review and save the rule in **Report-only** mode so you can validate its effect before enforcement.
 
 ===
+
+## Section 4: Understand sign-in logs (Optional bonus section)
 
 Finally, Maya opens the sign-in logs, filters to the lab account and time window, and reviews an available
 event and its Conditional Access details. We can understand from these sign-in logs whether policies applied to specific identities.
@@ -232,10 +237,7 @@ event and its Conditional Access details. We can understand from these sign-in l
 Her investigation has connected three things: the agent's risk signals, the intended access response, and
 the evidence available to validate that response. 
 
- 
-## Section 4: Understand sign-in logs
-
-Review sign-in activity related to your lab work.
+**Review sign-in activity related to your lab work.**
 
 1. Open the **Microsoft Entra admin center.**
 2. Navigate to Entra ID > Monitoring & health > Sign-in logs. 
