@@ -37,10 +37,9 @@ By the end of this session, you will be able to:
 
 ### 💻 Technologies used
 
-- **Microsoft Entra Conditional Access Policy Plans**
-- **Microsoft Entra ID Protection** (Risky agents and Dynamic Agent Risk)
-- **Microsoft Defender** (AI inventory and Dynamic risk assessment)
-- **Microsoft Entra sign-in logs**
+- **[Microsoft Entra Conditional Access Policy Plans](https://learn.microsoft.com/entra/identity/conditional-access/concept-conditional-access-policy-plans)**
+- **[Microsoft Entra ID Protection](https://learn.microsoft.com/entra/id-protection/concept-risky-agents)** (Risky agents and Dynamic Agent Risk)
+- **[Microsoft Defender](https://learn.microsoft.com/defender-xdr/security-for-ai/ai-agent-inventory)** (AI inventory and Dynamic risk assessment)
 
 ### 📚 Continue your learning
 
