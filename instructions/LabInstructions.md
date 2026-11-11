@@ -6,12 +6,11 @@
 
 **Total session:** 75 minutes (15 min intro, 55 min hands-on, 5 min wrap-up)
 
-**Lab profile:** [LabOnDemand Profile 224816](https://labondemand.com/LabProfile/224816)
-
 **Portal:** [Microsoft Entra admin center](https://entra.microsoft.com)
 
-##Access the lab
-Select **Sign-in**
+## Access the lab
+
+Select **Sign-in**.
 
 In the browser, go to +++entra.microsoft.com+++ and enter the following credentials:
 
@@ -33,9 +32,10 @@ respond appropriately.  In this lab, you will use Policy Plans to organize share
 review Dynamic Agent Risk across Microsoft Entra and Defender, and create agent-aware access controls.
 
 The lab uses a prepared tenant. Use the accounts, agent, user, links, and existing policies supplied in
-your lab environment. Do not substitute production identities or enable policies unless a task explicitly
-directs you to do so. The required policies are already configured in the lab tenant, so you do not need to
-save new policies. If you choose to save a policy, keep it in Report-only mode. Do not enable enforcement.
+your lab environment. Do not substitute production identities. Create and save the plans and rules when
+the steps instruct you to do so; use the existing branch-office policies for the migration exercise. Keep
+new rules in **Report-only** mode and do not enable enforcement. Report-only evaluates policies without
+enforcing them; saving a rule does not demonstrate that access or an agent action was blocked.
 
 ## Lab sections
 
@@ -57,19 +57,20 @@ Policy Plans let you define shared conditions once and organize distinct control
 
 ### 1.1 Create a Policy Plan for HQ users
 
-1. In the Microsoft Entra admin center (entra.microsoft.com), navigate to > **Conditional Access** ++https://entra.microsoft.com/?Microsoft_AAD_ConditionalAccess=Canary&feature.agentActions=true#view/Microsoft_AAD_ConditionalAccess/PolicyPlanEditor.ReactView/planId//mode/create++ (Copy + Right-click Paste and Go in the toolbar) > **Policy Plans** 
-3. Select the option to create a new Policy Plan.
-4. Configure the plan:
+1. Open ++https://aka.ms/continuous-ca++ in the browser to load the Conditional Access preview.
+2. Select **Policy plans (Preview)** > **Create plan**.
+3. Configure the plan:
    - **Name:** Enter the name: +++HQ Policy Plan+++ + [Your Name or Initials].
    - **Description:** Enter: +++Compliance for HQ users+++.
    - **Tags:** Add the tag +++HQ+++.
    - Verify that your account is listed as the owner.
-5. Under Shared identities, select **+ Add users** > **Users and groups**.
-6. For **Include**, search or filter for +++HQ+++, then select **Users and groups** > Search for **+++HQ all users+++** group.
-7. For **Excluded users**, select **Users and groups** > search or filter for +++Breakglass HQ+++, then select **Breakglass HQ**. Select **Add**
-8. Select **Next: Rule Information** to create the first rule. The users and groups you selected are shared by the rules in this plan.
+4. Under **Shared identities**, select **Add users, agents, or workload identities** > **Users and groups**.
+5. Under **Included users**, select **Users and groups**, search for +++HQ all users+++, select that group, and confirm the selection.
+6. Under **Excluded users**, select **Users and groups**, search for +++Breakglass HQ+++, select that group, and confirm the selection. Select **Add**.
+7. Verify that **HQ all users** is included and **Breakglass HQ** is excluded.
+8. Select **Next: Rule information** to create the first rule. The users and groups you selected are shared by the rules in this plan.
 
-Now that we have configured a policy plan for the HQ users and excluded an emergency-access group, let's define separate rules for phishing resistant and compliant devices.
+Now that we have configured a policy plan for the HQ users and excluded an emergency-access group, let's define separate rules for phishing-resistant authentication and compliant devices.
 
 ### 1.2 Add a rule to require phishing-resistant authentication
 
@@ -93,25 +94,26 @@ Now that we have configured a policy plan for the HQ users and excluded an emerg
 2. Configure the rule:
    - **Name:** +++Require Compliant Device+++ + [Your Name or Initials]
    - **Description:** Leave blank.
-   - Unfer **For these identities**, leave the selections as-is from the policy plan.
+   - **State:** Leave as **Report-only**.
+   - Under **For the identities**, keep the inherited assignments from the policy plan.
    - Under **Accessing these resources**, select **+Add resources** > **Resources** > **All resources** > **Add**.
-   - Under **Under the conditions**, leave **Client apps** set to **All client apps**.
-3. Under **Grant**, select **Add control** > **Grant**, then **Require device to be marked as compliant** > **Add**.
-4. Save the rule. Keep new rules in **Report-only** while validating their effect.
+   - Under **Under these conditions**, leave **Client app types** set to **All**.
+3. Under **Grant and session controls**, select **Add control** > **Grant**, then **Require device to be marked as compliant** > **Add**.
+4. Save the rule and verify that both HQ rules are **Report-only**.
 
 ### 1.4 Migrate existing Conditional Access policies into a Policy Plan
 
 1. Navigate to your **Conditional Access policies** at ++https://aka.ms/CAAssistiveAgentsWithRisk++ (Copy + Right-click Paste and Go in the toolbar) > **Policies**.
 2. Select **Migrate to Conditional Access Policy Plans**, then select **Get started**.
 3. Filter the policy list for +++Branch+++ to display the branch-office policies.
-4. From the filtered list, select the policies to migrate. Use **Select all** to select all five branch-office policies.
+4. Select only **Branch Office Australia**, **Branch Office Canada**, **Branch Office Europe**, **Branch Office Mexico**, and **Branch Office USA**. Confirm that exactly five policies are selected before continuing.
 5. Select **Merge 5 policies into a plan**.
 6. Review the preview of the new Policy Plan.
 7. Enter `Branch Office Access` as the Policy Plan name.
 8. Review the **Shared Conditions** identified from configuration common to the selected policies.
 9. Review the individual rules created from the existing policies. Examine the identities, resources, locations, grant controls, and session configurations associated with each rule.
 10. Select **Create policy plan**.
-11. Verify that the five existing policies have been migrated into the **Branch Office Access** plan with shared conditions and individual rules.
+11. Open the **Branch Office Access** plan you just created and verify its owner, shared conditions, five individual rules, and rule states. The validated preview created migrated rules in **Off**, rather than **Report-only**. Do not enable the migrated rules for this lab.
 
 **What you accomplished:** You helped Maya simplify Contoso's Conditional Access management by consolidating
 five existing branch-office policies into a single Branch Office Access plan. By organizing common
@@ -137,11 +139,11 @@ She opens Risky agents in Microsoft Entra ID Protection and discovers an agent f
    - Available exposure information
    - Available blast-radius information
 
-Note that the list of agents contains both cloud agents built in Copilot Studio, and local agents such as Github Copilot CLI.
+Note that the list of agents contains both cloud agents built in Copilot Studio, and local agents such as GitHub Copilot CLI.
  
 4. Scroll through the list of detections and recommendations. Open the available evidence or investigation links. Verify that the evidence is associated with the agent you selected. 
 
-The new risk assessment model includes three factors: indications of malicious activity (**runtime**), how easy it is to attack (**exposure**), what the potential impact (**blast radius**). These signals are now unified across Entra, Defender, and Purview.
+The new risk assessment model includes three factors: indications of malicious activity (**runtime**), how easy it is to attack (**exposure**), what the potential impact is (**blast radius**). These signals are now unified across Entra, Defender, and Purview.
 
 Maya follows the investigation into Microsoft Defender AI inventory, carefully verifying that she is reviewing the same agent or instance. She compares the findings across both experiences and checks the identity, source, and time associated with the available evidence. 
 
@@ -149,7 +151,7 @@ Maya follows the investigation into Microsoft Defender AI inventory, carefully v
 ### 2.2 Review agent risk in Microsoft Defender
 
 1. Go to ++security.microsoft.com++ (Copy + Right-click Paste and Go in the toolbar). Under **Show navigation** > **Assets**, open **AI Agents**.
-2. Locate the same agent or agent instance reviewed in Microsoft Entra, such as the +++IT Management+++ agent. Verify that the signals match what was shown for the agent identified in the previous exercise.
+2. Locate the same agent or agent instance reviewed in Microsoft Entra, such as the +++IT Management+++ agent. Compare its **Entra agent ID** with the ID from Microsoft Entra; do not rely on the display name alone. Then compare the risk values and indicators.
 3. Click into the agent and scroll to review the agent's **Dynamic risk assessment**, including available:
    - Exposure level and indicators
    - Blast-radius indicators
@@ -157,7 +159,7 @@ Maya follows the investigation into Microsoft Defender AI inventory, carefully v
    - Connected MCP servers
    - Capabilities
    - Recommendations
-4. Open available supporting evidence, including runtime alerts. Review the source, time, and identity associated with the evidence.
+4. Open available supporting evidence, including runtime alerts when present. Review the source, time, and identity associated with the evidence. If **Incidents and alerts** is empty, note the active filters and record that alert details are unavailable; an aggregate signal count alone is not evidence that you inspected an alert.
 5. Compare the Microsoft Defender findings with the risk information reviewed in Microsoft Entra.
 
 **Expected outcome:** Use the supporting evidence to explain the agent's Dynamic risk and potential impact, and confirm that you investigated the same agent in both experiences. In a single blade, we have visibility into risk factors such as weak instructions, privileged access, tool connections, and agent capabilities.
@@ -176,7 +178,7 @@ high-risk agent access while retaining existing user-access protections.
 
 The plan organizes the rules needed to cover different agent types and establishes shared conditions.
 
-1. Navigate to **Conditional Access** > ++https://entra.microsoft.com/?Microsoft_AAD_ConditionalAccess=Canary&feature.agentActions=true#view/Microsoft_AAD_ConditionalAccess/PolicyPlanEditor.ReactView/planId//mode/create++ (Copy + Right-click Paste and Go in the toolbar) > **Policy Plans** and create a new Policy Plan.
+1. Open ++https://aka.ms/continuous-ca++, then select **Policy plans (Preview)** > **Create plan**.
 2. Enter a name. Suggested format: `[your name or initials] [Test] Block High-Risk Agents`.
 3. Under **Shared identities**, leave the selection unconfigured at the plan level.
 4. Under **Shared resources** leave the selection unconfigured at the plan level
@@ -188,11 +190,11 @@ The plan organizes the rules needed to cover different agent types and establish
 **Policy intent:** For an agent identity, when agent risk is High, block access to all Entra resources. For this lab, create the rule in **Report-only** mode.
 
 1. Now you're creating your first rule for the plan. Suggested name: `[your name or initials] [Test] Block High-Risk Agent Identities`.
-2. Leave **Status** as **Report-only**. 
-3. Under **For the identities**, select **+Add resource** > **Agents** > **All agent identities**. Under **Included users**, select **Select agent identities** > > **Agent identities** > Select the **AI Assistant** agent. Agent Risk is inherited from the plan; do not configure it again in the rule.
+2. Leave **State** as **Report-only**. 
+3. Under **For the identities**, select **Add users, agents, or workload identities** > **Agents** > **All agent identities**. Under **Included users**, select **Select agent identities** > **Agent identities** > select the **AI Assistant** agent. Agent risk is inherited from the plan; do not configure it again in the rule.
 4. Under **Accessing these resources** > **Resources** > select **All resources** > **Add**.
-5. Under **Grant and Session Controls** > **Add control** > **Grant**, select **Block**.
-6. Select **Next: Review + Create**.
+5. Under **Grant and Session Controls** > **Add control** > **Grant**, select **Block access**.
+6. Select **Next: Review + create**, review the assignments and **Report-only** state, then select **Create**.
 
 ### 3.3 Create a rule to block high-risk assistive agents
 
@@ -204,12 +206,12 @@ interaction. Keep existing policies that govern users' access to protected resou
 For this lab, target only the specified test user and keep the rule in **Report-only** mode.
 
 1. From the Policy Plan, add a rule. Suggested name: `[your name or initials] [Test] Block High-Risk Assistive Agents`.
-2. Leave the **Status** as **Report-only**.
-3. Under **Shared identities**, select **Add users, agents, or workload identities**.
-4. **Users & Groups**. Under **Included Users**, select **Users and Groups**, search for **"Test User"**, and select that user. Agent Risk is inherited from the plan; do not configure it again in the rule.
-5. 4. Under **Accessing these resources** > **Resources** > select **All resources** > **Add**.
+2. Leave the **State** as **Report-only**.
+3. In the rule, under **For the identities**, select **Add users, agents, or workload identities** > **Users and groups**. Do not change the plan-level shared identities.
+4. Under **Included users**, select **Users and groups**, search for **Test User**, select that user, and confirm the selection. Select **Add**. Agent risk is inherited from the plan; do not configure it again in the rule.
+5. Under **Accessing these resources** > **Resources**, select **All resources** > **Add**.
 6. Under **Conditions** > **Assistive Agents**, select **All Assistive Agents**.
-7. Under **Grant and Session Controls** > **Grant**, select **Block**.
+7. Under **Grant and Session Controls** > **Grant**, select **Block access**.
 8. Save the rule.
 
 For medium-risk assistive agent actions, Maya takes a more targeted approach. She configures a separate plan that applies Restrict Actions to Microsoft-recommended protected actions. The intent is to constrain sensitive actions rather than apply a blanket access block. 
@@ -230,7 +232,7 @@ For medium-risk assistive agent actions, Maya takes a more targeted approach. Sh
 3. Under **Accessing these resources** > **Add Resources** > **Actions and destination**, select **Microsoft destinations** > **Protect sensitive actions** > Choose categories such as **Sensitive data access** > **Add**.
 4. Under **Conditions** > **Assistive Agents**, select **All Assistive Agents**. Agent Risk is inherited from the plan; do not configure it again in the rule.
 5. Under **Grant and session controls** > **Add control** > **Session**, select **Restrict Actions** > **Add**.
-6. Review and save the rule in **Report-only** mode so you can validate its effect before enforcement.
+6. Review and save the rule in **Report-only** mode. Verify the saved assignments, inherited conditions, and **Restrict actions (Preview)** control; this does not demonstrate enforcement.
 
 ===
 
