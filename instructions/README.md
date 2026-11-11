@@ -1,6 +1,6 @@
 # Attendee instructions: LAB680
 
-Welcome to **LAB680: Securing AI Agents with Microsoft Entra Conditional Access**.
+Welcome to **LAB680: AI Agents Are Sending Signals. Make Access Respond**.
 
 Complete step-by-step instructions for this lab are provided in:
 - [**Lab Instructions (Full Walkthrough)**](LabInstructions.md)
